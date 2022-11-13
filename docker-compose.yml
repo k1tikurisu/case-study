@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  node:
+    image: node:16.15-alpine
+    working_dir: /home/app
+    volumes:
+      - .:/home/app
+      - node_modules_volume:/home/app/node_modules:delegated
+
+volumes:
+  node_modules_volume:
