@@ -23,3 +23,18 @@ export const convertJsonToCSV = (json: any, options: json2csv.Options<unknown> =
   })
   return parser.parse(json)
 }
+
+export const pickRandom = <T>(array: T[], num: number) => {
+  const a = array
+  const t: T[] = []
+  const r: T[] = []
+  let l = a.length
+  let n = num < l ? num : l
+  while (n-- > 0) {
+    const i = Math.random() * l | 0
+    r[n] = t[i] || a[i]
+    --l
+    t[i] = t[l] || a[l]
+  }
+  return r
+}

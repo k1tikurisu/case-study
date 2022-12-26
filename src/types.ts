@@ -6,7 +6,7 @@ export type Revision = {
 export type ProposalInput = {
   nameWithOwner: string
   npm_pkg: string
-  state: string
+  state: 'failure' | 'success'
   stats: {
     failure: number
     success: number
@@ -48,20 +48,4 @@ export type TestResult = {
   L__version: string
   L__hash: string
   state: 'failure' | 'success'
-}
-
-export type StatusType = 'tp' | 'fn' | 'fp' | 'tn'
-
-export type OutputType = {
-  libraryName: string
-  prev: Revision
-  updated: Revision
-  clients: [
-    {
-      name: string
-      prevCommitHash: string
-      updatedCommitHash: string
-      status: StatusType
-    }
-  ]
 }

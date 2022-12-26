@@ -1,11 +1,15 @@
 version: '3.9'
 services:
   node:
-    image: node:16.15-alpine
-    working_dir: /home/app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: daaiki/main
+    working_dir: /works
     volumes:
-      - .:/home/app
-      - node_modules_volume:/home/app/node_modules:delegated
+      - .:/works
+      - node_modules_volume:/works/node_modules:delegated
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   node_modules_volume:

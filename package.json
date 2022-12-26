@@ -2,7 +2,7 @@
   "name": "app",
   "packageManager": "yarn@3.2.3",
   "scripts": {
-    "main": "yarn && ts-node src/main.ts"
+    "docker:analysis": "docker build -t daaiki/analysis --progress=plain ./src/analysis/Docker"
   },
   "devDependencies": {
     "@types/json2csv": "^5.0.3",
