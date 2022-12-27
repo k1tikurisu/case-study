@@ -6,7 +6,7 @@ import { readJson, safeWriteFileSync } from '@/utils'
 const main = async () => {
   const data = readJson<ProposalResult[]>('datasets/proposal_result.json')
 
-  for (let i = 2000; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     const { nameWithOwner, prev, updated, isBreaking } = data[i]
     // diffがないものは飛ばす
     if (!isBreaking) continue

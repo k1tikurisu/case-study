@@ -7,5 +7,4 @@ export { safeWriteFileSync } from '@/utils/std/safeWriteFileSync'
 
 // shell
 export { run } from '@/utils/shell/run'
-export { dockerRun } from '@/utils/shell/dockerRun'
 export { sleep } from '@/utils/shell/sleep'

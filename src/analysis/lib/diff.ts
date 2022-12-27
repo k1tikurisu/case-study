@@ -1,6 +1,10 @@
-import { dockerRun } from '@/utils'
+import { run } from '@/utils'
 
 export const getDiff = async (repoName: string, prevHash: string, updatedHash: string) => {
-  const result = await dockerRun(`./getDiff.sh ${repoName} ${prevHash} ${updatedHash}`, 'daaiki/analysis')
-  return result
+  try {
+    const result = await run(`docker run --rm daaiki/analysis ./getDiff.sh ${repoName} ${prevHash} ${updatedHash}`)
+    return result
+  } catch (e) {
+    return JSON.stringify(e).toString()
+  }
 }
